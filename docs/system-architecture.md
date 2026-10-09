@@ -5,6 +5,7 @@
 - **Main microcontroller: ESP32 family.** This is a project decision, not yet a final chip/module selection. Select the exact ESP32 variant only after checking timing resources, ADC needs, lifecycle, module availability, and firmware support.
 - **Modular architecture:** define replaceable functional modules and documented electrical/mechanical interfaces.
 - **Two cooking zones:** design around two independently monitored heating channels with a shared appliance-level power budget.
+- **Initial mains envelope:** assume a conventional 230 V / 16 A European household connection, giving 3.68 kW nominal arithmetic input ceiling only when the actual circuit and installation support it. The appliance scheduler must enforce the selected total input limit.
 - **Research-first:** use published reference designs, simulations, and non-destructive observations before considering hardware experiments.
 
 ## Functional blocks
