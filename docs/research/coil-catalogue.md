@@ -9,10 +9,9 @@
 Collect findable induction-cooking coil assemblies and relevant numerical research references in one structured place, so PawPlate can choose the inverter and coil as a paired system based on sourcing, documentation, electrical characteristics, repairability and compatibility evidence.
 
 This is a discovery dataset, not a universal interchangeability table. A part listed as 180 mm / 2 kW is not necessarily electrically similar to another 180 mm / 2 kW part.
-The initial CSV contains 19 records across:
 ## Current initial coverage
 
-The initial CSV contains 17 records across:
+The initial CSV contains 19 records across:
 - matched evaluation-board coil assemblies with manufacturer documentation;
 - commercial OEM replacement assemblies with listed part numbers and dimensions/power where published;
 - service-manual part references;
@@ -45,7 +44,7 @@ The initial catalogue intentionally includes records with sparse electrical data
 
 - Infineon EVAL-IHW25N140R5L: replaceable 170 mm coil, 2 kW single-ended evaluation board; load curves in its manual. [Manufacturer](https://www.infineon.com/evaluation-board/EVAL-IHW25N140R5L)
 - Infineon EVAL_2KW_SiC_IH: supplied coil with published approximate load curves; high-frequency half-bridge evaluation board. [Manufacturer](https://www.infineon.com/evaluation-board/EVAL-2KW-SIC-IH)
-- Published research coil: 180 mm outer diameter, 28 turns, 66-strand 0.27 mm litz wire, no-pan inductance 110 µH, and cookware-dependent values. [Paper](https://www.mdpi.com/2079-9292/12/19/4145)
+- Published research coil: 180 mm outer diameter, 28 turns, 66-strand 0.27 mm litz wire, no-pan inductance 110 ÂµH, and cookware-dependent values. [Paper](https://www.mdpi.com/2079-9292/12/19/4145)
 
 ### Commercial OEM replacement assemblies
 
@@ -74,6 +73,10 @@ The initial catalogue intentionally includes records with sparse electrical data
 6. **Distinguish nominal appliance power from coil limits.** Retailer wattage often describes the intended appliance/zone, not a transferable electrical rating.
 7. **Keep exclusion records when helpful.** Generic search results also return radiant hotplates; verify that each candidate is truly an induction coil before adding it to the candidate set.
 8. **No compatibility claim from catalogue data alone.** Only a documented and validated coil + resonant network + inverter + control + mechanical stack-up can be approved for PawPlate.
+
+## Electronics distributor survey
+
+A separate [Mouser/Farnell survey](distributor-coil-sourcing.md) checked catalogued wireless-power coils, ferrite plates and standard power inductors. It found useful adjacent components but no confirmed, standard hob-sized cooking coil in the reviewed results. These products are intentionally not counted as candidate cooking coils in the main CSV.
 
 ## Recommended next collection pass
 

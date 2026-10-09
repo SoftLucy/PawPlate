@@ -1,4 +1,4 @@
-# PawPlate 🐾
+# PawPlate ðŸ¾
 
 An open-source, repairable two-zone built-in induction cooktop, inspired by affordable domino hobs.
 
@@ -61,3 +61,4 @@ Licensing has not yet been selected. Hardware and software may use separate lice
 - `docs/research/coil-inverter-pairing-study.md` - in-depth comparison of purchasable matched coil/inverter kits and dual-zone reference architectures, including sourcing, limitations and recommended next steps.
 - `data/coil-assemblies.csv` - structured coil-assembly catalogue with source links, known specifications and explicit unknowns.
 - `docs/research/coil-catalogue.md` - catalogue schema, provenance rules, initial coverage and research plan for expanding it.
+- `docs/research/distributor-coil-sourcing.md` - Mouser/Farnell survey of wireless-power coils, ferrite plates and adjacent components; no unverified WPT parts are misclassified as hob coils.
