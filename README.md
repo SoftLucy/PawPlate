@@ -66,6 +66,8 @@ Licensing has not yet been selected. Hardware and software may use separate lice
 
 ## Dual-zone reference design mapping
 
-- `docs/research/reference-design-block-map.md` - source-backed functional-block map of the Infineon REF-SHA3K3IHWR5SYS dual-zone reference, documenting known interfaces, reference components, sourcing/documentation gaps, the current-sensor part-number inconsistency, and remaining PawPlate research gates.
+- `docs/research/reference-design-block-map.md` - source-backed functional-block map of the Infineon REF-SHA3K3IHWR5SYS dual-zone reference, including the ESP32-S3 feasibility screen, current-sensor documentation discrepancy, and remaining research gates.
+
+## Safety and compliance research
 
 - `docs/research/eu-compliance-applicability.md` - preliminary EU/Germany legal and standards applicability screening for a finished domestic induction hob; editions and harmonised status explicitly remain to be verified.
