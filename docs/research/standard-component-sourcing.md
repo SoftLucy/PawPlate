@@ -10,7 +10,8 @@ PawPlate's key early question is not yet "which circuit do we build?" but "which
 
 For the initial design case, assume a conventional European/German 230 V single-phase household connection with a 16 A-rated socket/circuit, subject to confirmation of the actual installation and circuit loading.
 
-- Nominal arithmetic ceiling: 230 V × 16 A = 3,680 W input.
+- **Project target:** 3,000 W continuous total input.
+- **Project peak ceiling:** 230 V × 16 A = 3,680 W input, only where the actual connection and installation support it.
 - This is not a universal guarantee that any socket/circuit can supply 3.68 kW continuously; wiring, protective devices, other circuit loads, connection condition and applicable installation rules matter.
 - Use a shared appliance power budget so the sum of both zones plus auxiliary loads remains within the selected input limit.
 - Keep a target in the roughly 3.4 kW class as a comparison point for the existing domino hob, but verify its nameplate/manual before treating it as a formal requirement.
