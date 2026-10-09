@@ -6,7 +6,7 @@ Date checked: 2026-10-09
 
 The earlier ESP32-S3 screen found a real limitation: Espressif explicitly says ESP32-S3 does not support MCPWM ETM events. A follow-up check found that the **ESP32-P4 does document MCPWM Event Task Matrix (ETM) support**, and its datasheet lists both MCPWM and ADC among ETM-capable peripherals. Its ADC controller includes two 12-bit SAR ADCs, continuous sampling/DMA, and threshold monitors.
 
-This makes ESP32-P4 a better **candidate to evaluate** for hardware-timed sampling than ESP32-S3. It does not prove the chip, board, analog front end, or complete induction-control loop is suitable. The retrieved P4 datasheet is marked preliminary; re-check the current datasheet, technical reference manual, errata and target-specific IDF version before treating peripheral details as fixed. No MCU variant is selected by this note.
+This makes ESP32-P4 a better **candidate to evaluate** for hardware-timed sampling than ESP32-S3. The ESP32-P4 technical reference manual documents ADC ETM tasks, including ADC_TASK_START to start HP ADC multi-channel sampling, while the MCPWM driver documents phase-positioned event comparators. That is evidence for a hardware-level route; however, the current high-level ADC driver page does not document a public ADC ETM-task API or fully explain the driver-mode semantics for this use. The exact software configuration, timing and suitability still need proof. The retrieved P4 datasheet and technical reference manual are preliminary; re-check current revisions, errata and target-specific IDF support before treating peripheral details as fixed. No MCU variant is selected by this note.
 
 ## Official-source comparison
 
@@ -14,7 +14,7 @@ This makes ESP32-P4 a better **candidate to evaluate** for hardware-timed sampli
 |---|---|---|---|
 | MCPWM ETM events | Explicitly unsupported | Documented, including timer/comparator events | P4 has a documented peripheral event path that S3 lacks. |
 | ADC capability | Continuous ADC with DMA; ESP-IDF documents limitations including ADC2 DMA support | Two 12-bit SAR ADCs; continuous conversion and GDMA; threshold monitors | P4 has more explicit hardware acquisition/monitoring features, but accuracy, noise, input range and actual sample timing still need engineering validation. |
-| PWM-synchronous ADC trigger | No documented direct MCPWM ETM route on S3 | P4 MCPWM ETM docs describe comparator events as a way to mark an exact PWM phase for ADC triggering; P4 datasheet lists ADC and MCPWM as ETM-capable | This is a promising architecture feature, not a guarantee of sample jitter, conversion latency, or adequate loop performance under the intended load. |
+| PWM-synchronous ADC trigger | No documented direct MCPWM ETM route on S3 | P4 MCPWM ETM docs describe an event comparator as an ADC timing marker; the P4 technical reference manual lists ADC ETM tasks including ADC_TASK_START for HP ADC multi-channel sampling. The current high-level ADC driver page does not document a public API for configuring that ETM task | A hardware-level MCPWM-to-ADC route appears documented on P4, but supported software configuration, ADC mode semantics, jitter, conversion latency and loop performance remain unverified. |
 | Independent safety shutdown | MCU peripheral fault handling is not a complete appliance safety mechanism | Same | External hardware protection remains mandatory, even if P4 is chosen. |
 
 ### Sources
@@ -22,6 +22,7 @@ This makes ESP32-P4 a better **candidate to evaluate** for hardware-timed sampli
 - Espressif, [ESP32-S3 MCPWM ETM documentation](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/mcpwm/mcpwm_etm.html) — explicitly states that ESP32-S3 does not support MCPWM ETM events.
 - Espressif, [ESP32-P4 MCPWM ETM documentation](https://docs.espressif.com/projects/esp-idf/en/latest/esp32p4/api-reference/peripherals/mcpwm/mcpwm_etm.html) — describes MCPWM timer/comparator events and notes that an event comparator can be used as an ADC timing marker.
 - Espressif, [ESP32-P4 datasheet](https://documentation.espressif.com/esp32-p4_datasheet_en.html) — documents 50 ETM channels, lists MCPWM and ADC among supported peripherals, and describes two 12-bit SAR ADCs, continuous transfer via GDMA, threshold monitors and analog voltage comparators.
+- Espressif, [ESP32-P4 technical reference manual (pre-release PDF)](https://documentation.espressif.com/esp32-p4_technical_reference_manual_en.pdf) — the ADC-controller chapter lists ETM tasks including ADC_TASK_SAMPLE (LP ADC one-shot sampling), ADC_TASK_START (HP ADC multi-channel sampling) and ADC_TASK_STOP.
 - Espressif, [ESP32-P4 ADC continuous-mode driver](https://docs.espressif.com/projects/esp-idf/en/latest/esp32p4/api-reference/peripherals/adc/adc_continuous.html) — describes high-speed continuous sampling and DMA delivery.
 
 ## Design consequence
