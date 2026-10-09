@@ -62,3 +62,8 @@ Licensing has not yet been selected. Hardware and software may use separate lice
 - `data/coil-assemblies.csv` - structured coil-assembly catalogue with source links, known specifications and explicit unknowns.
 - `docs/research/coil-catalogue.md` - catalogue schema, provenance rules, initial coverage and research plan for expanding it.
 - `docs/research/distributor-coil-sourcing.md` - Mouser/Farnell survey of wireless-power coils, ferrite plates and adjacent components; no unverified WPT parts are misclassified as hob coils.
+
+
+## Dual-zone reference design mapping
+
+- `docs/research/reference-design-block-map.md` - source-backed functional-block map of the Infineon REF-SHA3K3IHWR5SYS dual-zone reference, documenting known interfaces, reference components, sourcing/documentation gaps, the current-sensor part-number inconsistency, and remaining PawPlate research gates.
