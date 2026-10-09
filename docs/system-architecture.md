@@ -55,3 +55,8 @@ No topology has been selected and no design is ready for mains connection. Evalu
 ## Research update (2026-10-09)
 
 Half-bridge series-resonant is currently the leading topology candidate, based on the dual-zone references compared in `docs/research/coil-inverter-pairing-study.md`. It is not yet a fixed decision. Keep the coil and inverter as a paired design choice: the Infineon 170 mm coil kit is a useful 20-50 kHz matched-load reference, while Midea 17466000000118 is a low-cost 180 mm spare candidate with missing electrical data. Neither is approved for PawPlate. The next gate is to obtain or measure electrical data for an exact coil before setting resonant-network and operating limits.
+
+
+## Research update: controller timing constraint (2026-10-09)
+
+The ESP32 family remains the project controller-family decision, but do not assume every variant is suitable for resonant inner-loop control. Espressif's current ESP32-S3 MCPWM documentation explicitly states that MCPWM ETM events are not supported on ESP32-S3, and its continuous ADC interface does not expose a direct MCPWM event-trigger configuration. This is a meaningful limitation for deterministic switching-synchronous current sampling. Until a selected variant and timing test prove otherwise, treat the ESP32 as the supervisory controller for UI, diagnostics and total-input power scheduling; evaluate any fast control loop separately and retain independent hardware shutdown. See `docs/research/reference-design-block-map.md` for the source-backed comparison.
