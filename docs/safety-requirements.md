@@ -11,3 +11,8 @@ This is an early planning checklist, not a complete safety case.
 - Obtain qualified review and formal verification before any appliance is used for cooking or offered to others.
 
 Never describe a simulated, unreviewed design as safe or compliant.
+
+
+## Regulatory research reference
+
+See `docs/research/eu-compliance-applicability.md` for a preliminary EU/Germany applicability screening and authoritative links. It is a research aid, not a complete legal assessment. Verify the exact current EN editions and harmonised status before any conformity claim.

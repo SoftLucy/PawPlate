@@ -54,7 +54,7 @@ Sources: [MCPWM](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/a
 - User guide and high-level functional architecture.
 - Component names for key inverter, current-sensor, MCU and auxiliary-supply blocks.
 - PDF schematic/layout download pages for the inverter board.
-- A public Infineon community response states that the available board layout and schematic files are PDF-only; editable Gerber/CAD files were not available in that response.
+- Infineon's user guide explicitly warns that reference boards are functionally tested only under typical load conditions and are not qualified for safety, manufacturing or lifetime; they may not meet CE or similar requirements. Treat the board as a research reference, not a safe appliance or proof of compliance. [User guide](https://www.infineon.com/assets/row/public/documents/60/44/infineon-ug-2024-05-smart-induction-cooktop-usermanual-en.pdf)
 - A currently active/preferred manufacturer product page for `TLI4971-A120T5-U-E0001`; this confirms the part exists and is offered, not that it is the reference board's fitted variant.
 
 ### Not established by the public documentation reviewed here
