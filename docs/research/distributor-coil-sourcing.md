@@ -72,3 +72,31 @@ This pass broadened the survey from coils to components that could support a cus
 - [TME Vishay 10 kΩ NTC thermistor](https://www.tme.eu/de/details/ntcs0603e3103fmt/ntc-mess-thermistoren-smd/vishay/)
 - [Farnell NTC thermistors](https://de.farnell.com/en-DE/c/sensors-transducers/sensors/temperature-sensors-transducers/thermistors/ntc-thermistors)
 - [Farnell induction-heating IGBT](https://de.farnell.com/en-DE/stmicroelectronics/stgw30nc120hd/igbt-n-1200v-30a-to-247/dp/1542228)
+
+
+## Third pass: component cross-check against a dual-zone reference design
+
+The Infineon REF-SHA3K3IHWR5SYS user guide is especially useful because it ties named components to a documented two-zone, half-bridge induction-cooking system. The reference design is specified for 230 V input, two zones, 30–50 kHz and roughly 3.3–3.5 kW system capability. That is close enough to PawPlate's architectural study to be a strong *reference*, but its published maximum capability is not evidence that it meets PawPlate's separate 3.0 kW continuous target or that its design can be copied without review. [Reference board](https://www.infineon.com/evaluation-board/REF-SHA3K3IHWR5SYS) · [User guide](https://www.infineon.com/assets/row/public/documents/60/44/infineon-ug-2024-05-smart-induction-cooktop-usermanual-en.pdf)
+
+### Named reference components and sourcing notes
+
+| Reference-design component | Function stated by Infineon | Distributor evidence | Assessment |
+|---|---|---|---|
+| IHW40N65R6 | Half-bridge induction inverter IGBT pair | Farnell lists the related IHW50N65R6 variant, but it is not the exact IHW40N65R6 device used in the reference. [Farnell IHW50N65R6](https://de.farnell.com/infineon/ihw50n65r6xksa1/transistor-650v-100a-251w-to-247/dp/3958706) | Do not substitute by headline current rating. The exact device, switching-loss curves, reverse-conduction behavior, package/thermal constraints and gate conditions must be checked. |
+| 2ED21824S06J | Half-bridge gate driver | [Infineon product family and induction-cooking selection guide](https://www.infineon.com/applications/consumer-electronics/home-appliances/induction-cookers) | Reference part is identified by the guide; exact current stock and lifecycle were not independently confirmed in this pass. |
+| TLI4971-A120T5-U-F0001 (exact model named in the detailed block list) | Current sensing for pan detection, coil-current measurement and overcurrent detection | The guide's component list specifies the A120T5-U variant, not the A075T5-E variant. The A075T5-E is a related 75 A family member with 240 kHz bandwidth and fast overcurrent outputs, listed by [Mouser Germany](https://www.mouser.de/en/ProductDetail/Infineon-Technologies/TLI4971A075T5E0001XUMA1) and [Farnell](https://de.farnell.com/infineon/tli4971a075t5e0001xuma1/stromsensor-75a-tison-8/dp/3755153); those distributor pages do **not** confirm availability of the exact A120 variant. | Strong architectural reference because the sensor has an analog measurement path and fast overcurrent outputs. The exact model must be sourced/verified; a sensing element is not by itself an independent safety shutdown. |
+| CY8C6244AZI-S4D82 | MCU on the inverter control board | Mouser lists the exact part family as non-stocked with an estimated 10-week lead time in the search result. [Mouser product listing](https://www.mouser.ie/en/ProductDetail/Infineon-Technologies/CY8C6244AZI-S4D82) | Demonstrates a mature appliance-oriented reference controller, but it does not mean PawPlate must abandon the ESP32 candidate. A controller choice should be based on deterministic control/peripheral needs and safety architecture, not brand matching. |
+
+### Important interpretation
+
+- This reference guide is a more credible starting point than selecting unrelated distributor parts independently: it identifies a real two-zone half-bridge architecture and names key sensing, switching and control parts.
+- It still does **not** make a complete, validated PawPlate BOM. Coil, resonant capacitor, bus capacitor, EMI filter, gate resistors, thermal stack, sensors, connectors, layout and protection must all be evaluated as a coordinated system.
+- The Infineon page advertises 3.3 kW output in its product data and 3.5 kW support in its features. PawPlate's 3.0 kW target is appliance input power, so ratings must be compared only after defining whether each figure is input or delivered heating power.
+- Public PDFs are available, while Infineon notes that registered users can access additional BOM/design files. A community answer says PCB layout and schematic PDFs are publicly accessible, but editable CAD/Gerber availability was not confirmed. [Infineon developer community discussion](https://community.infineon.com/t5/IGBT/Looking-for-PCB-Design-Files-of-Smart-Induction-Cooktop-Reference-Design-REF/td-p/794882)
+- The user guide describes the MCU and current sensor roles; any safety-critical overcurrent trip and gate-disable path still needs independent analysis and cannot depend solely on ordinary firmware execution.
+
+## Recommended architecture research direction
+
+Use REF-SHA3K3IHWR5SYS as the leading **system-level reference** for a dual-zone half-bridge, and use ST AN4713 and Infineon's single-zone evaluation boards as independent topology/characterization references. Keep the ESP32 in the candidate architecture until the required PWM timing, synchronized ADC sampling, comparator/trip resources, watchdog behavior and fail-safe outputs are compared against actual ESP32 variants. Do not choose an MCU based on connectivity features.
+
+Next useful work is a source-backed functional-block comparison rather than a premature BOM: (1) power switch + gate driver, (2) coil/tank + sensing, (3) current/voltage/temperature protection, (4) auxiliary supplies and mains input protection, (5) controller and independent hardware disable, and (6) dual-zone input-power budget. For each block, track exact reference part, manufacturer documentation, distributor availability, and what remains unverified.
