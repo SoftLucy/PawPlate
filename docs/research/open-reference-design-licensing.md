@@ -21,14 +21,15 @@ The Cypress (an Infineon company) EULA displayed on the pack page grants narrow 
 ### 2. Toshiba RD206 — technically relevant, not established as open hardware
 
 Reference page: https://toshiba.semicon-storage.com/us/semiconductor/design-development/referencedesign/detail.RD206.html
+Terms: https://toshiba.semicon-storage.com/us/terms.html
 
 Toshiba publishes a 2 kW, 200–240 V AC voltage-resonant soft-switching induction-cooker inverter reference. Its page lists a reference guide, design guide, sample software, circuit diagram, BOM, PCB data, and fabrication data in several EDA formats.
 
-The page's availability of editable files does not itself grant an open-hardware license. The linked Toshiba site terms include site/materials conditions and disclaimers, but this research did not identify a clear permissive license authorizing PawPlate to redistribute or adapt those files.
+The linked Toshiba US site terms are more explicit than a generic 'license unclear' status. Sections 31–43 state that Toshiba/affiliates own the documents unless otherwise stated, permit only a single copy for internal non-commercial use, and prohibit modifying, distributing, publicly transmitting, or transferring copies absent separate permission or individual material terms. Section 55 further says materials may not be copied, modified, published, uploaded or distributed without prior written permission. The page's statement that files can be freely edited in an EDA tool describes technical editability, not redistribution rights.
 
 The page also flags the 2SC6135 as not recommended for new designs as of April 2026. Confirm the exact design revision and all fitted parts before using any component claim.
 
-**Decision:** Technical reading and citation only for now. Do not copy the CAD, PCB, sample software, or manufacturing files into this repository unless an applicable license or written permission is confirmed.
+**Decision:** Treat the design pack as proprietary reference material, not open hardware. Read and cite its public specifications, but do not mirror the CAD, PCB, sample software, or manufacturing files in PawPlate. If we ever need to adapt those files, first obtain written permission or verify a specific accompanying license that supersedes the general site terms.
 
 ### 3. Renesas AS048-EVK — technically relevant, license still unresolved
 

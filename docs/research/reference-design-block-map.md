@@ -88,14 +88,15 @@ Sources: [MCPWM](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/a
 This document is research-only. It does not contain circuit values, PCB layout instructions, or a build-ready mains design.
 
 
-## Follow-up controller candidate: ESP32-P4
+## Follow-up controller feasibility screen: ESP32 family, variant undecided
 
-A separate official-documentation check changes the variant shortlist, but not the project-level ESP32-family decision:
+A separate official-documentation check adds information to the variant shortlist without selecting a chip:
 
 - Espressif explicitly states that ESP32-S3 does not support MCPWM ETM events.
-- ESP32-P4's official MCPWM ETM documentation supports timer/comparator events and describes using an event comparator as a timing marker for ADC sampling.
-- The ESP32-P4 datasheet lists both MCPWM and ADC among ETM-capable peripherals and documents two 12-bit SAR ADCs, continuous DMA transfer, threshold monitors and analog voltage comparators.
+- ESP32-C6 and ESP32-P4 document MCPWM ETM support; the P4 documentation describes a dedicated event comparator that can mark an ADC sampling phase.
+- C6 and P4 datasheets list ADC and MCPWM among ETM-capable peripherals. P4 documents two 12-bit SAR ADCs and continuous DMA; C6 documents a 12-bit SAR ADC and a 160 MHz high-performance RISC-V core plus a low-power core.
+- The P4 technical reference manual lists ADC ETM tasks including ADC_TASK_START for HP ADC multi-channel sampling. However, the high-level ADC driver docs do not establish the supported public API and full driver-mode configuration for phase-locked acquisition. ADC_TASK_START may start a sampling run rather than yield exactly one conversion per PWM event.
 
-This makes P4 a better candidate for a PWM-synchronous acquisition proof of concept than S3. The ESP32-P4 technical reference manual documents ADC ETM tasks, including ADC_TASK_START for HP ADC multi-channel sampling, but the current high-level ADC driver documentation does not show a public API for configuring that ETM task or explain all driver-mode semantics for this route. The hardware-level path appears possible; the supported software configuration and whether an event yields one sample versus starts a sampling run remain unverified. It does **not** establish sample jitter, analog accuracy, control-loop performance, safety or suitability of a final board. A target-specific timing test and independent hardware shutdown remain required.
+Therefore, the exact ESP32 variant remains undecided. A datasheet feature list does not establish trigger-to-sample timing, jitter, analog accuracy, control-loop performance, safety or suitability of a final board. Evaluate exact silicon revisions, ESP-IDF support, peripheral allocation and measured timing before selection; retain independent hardware shutdown.
 
-Sources: [ESP32-P4 MCPWM ETM](https://docs.espressif.com/projects/esp-idf/en/latest/esp32p4/api-reference/peripherals/mcpwm/mcpwm_etm.html), [ESP32-P4 datasheet](https://documentation.espressif.com/esp32-p4_datasheet_en.html), [ESP32-P4 technical reference manual (pre-release)](https://documentation.espressif.com/esp32-p4_technical_reference_manual_en.pdf), [ESP32-P4 ADC continuous mode](https://docs.espressif.com/projects/esp-idf/en/latest/esp32p4/api-reference/peripherals/adc/adc_continuous.html). Detailed gates are recorded in docs/research/esp32-variant-control-timing.md.
+Sources: [ESP32-C6 MCPWM ETM](https://docs.espressif.com/projects/esp-idf/en/latest/esp32c6/api-reference/peripherals/mcpwm/mcpwm_etm.html), [ESP32-P4 MCPWM ETM](https://docs.espressif.com/projects/esp-idf/en/latest/esp32p4/api-reference/peripherals/mcpwm/mcpwm_etm.html), [ESP32-C6 datasheet](https://documentation.espressif.com/esp32-c6_datasheet_en.html), [ESP32-P4 datasheet](https://documentation.espressif.com/esp32-p4_datasheet_en.html), [ESP32-P4 technical reference manual (pre-release)](https://documentation.espressif.com/esp32-p4_technical_reference_manual_en.pdf). Detailed gates are recorded in docs/research/esp32-variant-control-timing.md.

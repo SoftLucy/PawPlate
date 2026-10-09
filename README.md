@@ -66,7 +66,7 @@ Licensing has not yet been selected. Hardware and software may use separate lice
 
 ## Dual-zone reference design mapping
 
-- `docs/research/reference-design-block-map.md` - source-backed functional-block map of the Infineon REF-SHA3K3IHWR5SYS dual-zone reference, including the ESP32-S3 feasibility screen, current-sensor documentation discrepancy, and remaining research gates.
+- `docs/research/reference-design-block-map.md` - source-backed functional-block map of the Infineon REF-SHA3K3IHWR5SYS dual-zone reference, including the ESP32-family variant feasibility screen (no specific variant selected), current-sensor documentation discrepancy, and remaining research gates.
 - `docs/research/esp32-variant-control-timing.md` - official-documentation comparison of ESP32-S3 and ESP32-P4 peripheral timing support; identifies P4 as a candidate for proof of concept, not a validated controller choice.
 
 ## Safety and compliance research
