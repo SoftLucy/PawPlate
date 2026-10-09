@@ -57,3 +57,4 @@ Licensing has not yet been selected. Hardware and software may use separate lice
 ## Coil assembly research
 
 - `docs/research/coil-assembly-comparison.md` - sourced comparison of commercially listed replacement coils, documented evaluation-board coil assemblies, service-manual examples, and published numerical coil characteristics. Missing specifications are marked unknown; no coil is approved for use.
+- `docs/design/coil-interface-proposal.md` - proposed coil cassette interface, mandatory compatibility gates, characterization requirements and approval levels.
