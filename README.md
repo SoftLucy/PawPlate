@@ -59,6 +59,7 @@ Licensing has not yet been selected. Hardware and software may use separate lice
 - `docs/research/coil-assembly-comparison.md` - sourced comparison of commercially listed replacement coils, documented evaluation-board coil assemblies, service-manual examples, and published numerical coil characteristics. Missing specifications are marked unknown; no coil is approved for use.
 - `docs/design/coil-interface-proposal.md` - proposed coil cassette interface, mandatory compatibility gates, characterization requirements and approval levels.
 - `docs/research/coil-inverter-pairing-study.md` - in-depth comparison of purchasable matched coil/inverter kits and dual-zone reference architectures, including sourcing, limitations and recommended next steps.
+- `docs/research/coil-supplier-data-request.md` - draft German/English request for technical data on the Midea 17466000000118 coil; no supplier has been contacted.
 - `data/coil-assemblies.csv` - structured coil-assembly catalogue with source links, known specifications and explicit unknowns.
 - `docs/research/coil-catalogue.md` - catalogue schema, provenance rules, initial coverage and research plan for expanding it.
 - `docs/research/distributor-coil-sourcing.md` - Mouser/Farnell survey of wireless-power coils, ferrite plates and adjacent components; no unverified WPT parts are misclassified as hob coils.
@@ -67,7 +68,7 @@ Licensing has not yet been selected. Hardware and software may use separate lice
 ## Dual-zone reference design mapping
 
 - `docs/research/reference-design-block-map.md` - source-backed functional-block map of the Infineon REF-SHA3K3IHWR5SYS dual-zone reference, including the ESP32-family variant feasibility screen (no specific variant selected), current-sensor documentation discrepancy, and remaining research gates.
-- `docs/research/esp32-variant-control-timing.md` - official-documentation comparison of ESP32-S3 and ESP32-P4 peripheral timing support; identifies P4 as a candidate for proof of concept, not a validated controller choice.
+- `docs/research/esp32-variant-control-timing.md` - official-documentation comparison of ESP32-S3, ESP32-C6 and ESP32-P4 peripheral timing resources and errata; no exact variant or controller partition is selected.
 
 ## Safety and compliance research
 
