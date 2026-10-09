@@ -26,7 +26,7 @@
 - **Mains/DC-link module:** input protection, EMI filtering, rectification and DC-link energy storage. High-voltage boundary; not a hobby plug-in module.
 - **Zone power module (x2):** switching devices, gate driver, local resonant network and coil interface.
 - **Sensor/protection module(s):** current/voltage and temperature conditioning, pan detection signals, interlocks and hardware fault line. Fast protection must not depend on ESP32 task scheduling.
-- **ESP32 controller module:** user settings, power allocation, state machine, telemetry and supervisory control. MCPWM may be evaluated for timing generation, but exact suitability must be proven for the selected ESP32 and control topology.
+- **ESP32-family controller module(s):** user settings, power allocation, state machine, telemetry and/or fast control according to the eventual partition. A supervisory role is one candidate, not a fixed decision. MCPWM/ADC resources and exact timing suitability must be proven for the selected variant and topology.
 - **UI module:** touch/buttons, display/LEDs and user feedback, separated from power electronics.
 - **Mechanical/thermal module:** glass/ceramic top, coil supports, ferrite, heatsinks, fans/ducts, enclosure, shielding and service access.
 - **Auxiliary supply module:** suitable isolated low-voltage rails for controller/UI and any required driver supplies; exact isolation and rail needs depend on the chosen power architecture.
