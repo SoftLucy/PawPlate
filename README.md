@@ -4,9 +4,9 @@ An open-source, repairable two-zone built-in induction cooktop, inspired by affo
 
 ## Project status
 
-**Concept and research only.** This is a fun, exploratory thought experiment—not a validated product or a promise that a working hob will be built. No hardware has been built or validated.
+**Concept and research only.** This is a fun, exploratory thought experiment - not a validated product or a promise that a working hob will be built. No hardware has been built or validated.
 
-### AI-assisted work — human review required
+### AI-assisted work - human review required
 
 This project is being developed **heavily with AI assistance**. AI-generated research, diagrams, code, calculations, component suggestions, and documentation can be wrong, incomplete, outdated, or misleading. **Do not treat anything in this repository as trustworthy or verified just because it is written here. Everything must receive human review and independent verification before it is relied on**, especially any electrical, thermal, mechanical, firmware, sourcing, or safety claim. Links and citations should also be checked against their original sources.
 
@@ -22,13 +22,13 @@ Mains-powered induction circuitry can cause fatal electric shock, fire, or other
 
 ## Planned documentation
 
-- `docs/project-goals.md` — scope and success criteria
-- `docs/reference-appliance.md` — non-destructive notes about the reference hob
-- `docs/system-architecture.md` — candidate architecture and open decisions
-- `docs/safety-requirements.md` — safety considerations and validation needs
-- `docs/cost-model.md` — target cost and bill-of-materials assumptions
-- `docs/research/` — references, application notes, and prior art
-- `decisions/` — architecture decision records
+- `docs/project-goals.md` - scope and success criteria
+- `docs/reference-appliance.md` - non-destructive notes about the reference hob
+- `docs/system-architecture.md` - candidate architecture and open decisions
+- `docs/safety-requirements.md` - safety considerations and validation needs
+- `docs/cost-model.md` - target cost and bill-of-materials assumptions
+- `docs/research/` - references, application notes, and prior art
+- `decisions/` - architecture decision records
 
 ## Contributing and forking
 
@@ -43,7 +43,7 @@ A simple way to contribute on GitHub:
 
 For research contributions, include original sources and access dates where useful. Mark assumptions clearly and distinguish among AI-generated suggestions, independently checked claims, simulation results, and physically tested results. Please do not submit unverified AI output as established fact. All contributions need human review; safety-critical proposals need appropriate specialist review.
 
-GitHub's guides explain the workflow: [Fork a repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo) · [Contributing to projects](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project) · [About pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+GitHub's guides explain the workflow: [Fork a repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo) | [Contributing to projects](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project) | [About pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 ## Safety and maturity
 
