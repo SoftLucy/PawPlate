@@ -86,3 +86,16 @@ Sources: [MCPWM](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/a
 - Keep all physical power-stage work behind qualified design review, safe test facilities and a separate appliance-safety validation plan.
 
 This document is research-only. It does not contain circuit values, PCB layout instructions, or a build-ready mains design.
+
+
+## Follow-up controller candidate: ESP32-P4
+
+A separate official-documentation check changes the variant shortlist, but not the project-level ESP32-family decision:
+
+- Espressif explicitly states that ESP32-S3 does not support MCPWM ETM events.
+- ESP32-P4's official MCPWM ETM documentation supports timer/comparator events and describes using an event comparator as a timing marker for ADC sampling.
+- The ESP32-P4 datasheet lists both MCPWM and ADC among ETM-capable peripherals and documents two 12-bit SAR ADCs, continuous DMA transfer, threshold monitors and analog voltage comparators.
+
+This makes P4 a better candidate for a PWM-synchronous acquisition proof of concept than S3. It does **not** prove the necessary trigger path works in every ADC mode, nor establish sample jitter, analog accuracy, control-loop performance, safety or suitability of a final board. A target-specific timing test and independent hardware shutdown remain required.
+
+Sources: [ESP32-P4 MCPWM ETM](https://docs.espressif.com/projects/esp-idf/en/latest/esp32p4/api-reference/peripherals/mcpwm/mcpwm_etm.html), [ESP32-P4 datasheet](https://documentation.espressif.com/esp32-p4_datasheet_en.html), [ESP32-P4 ADC continuous mode](https://docs.espressif.com/projects/esp-idf/en/latest/esp32p4/api-reference/peripherals/adc/adc_continuous.html). Detailed gates are recorded in docs/research/esp32-variant-control-timing.md.
