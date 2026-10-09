@@ -62,6 +62,16 @@ The repository identifies its plans, schematics, and code as CC BY-SA 4.0. It is
 
 **Decision:** Useful for studying how an open project publishes source design material and for broad induction-heating concepts. Do not treat it as a validated hob design or copy its power stage without a separate, qualified engineering assessment.
 
+### 6. Hackaday IKEA TILLREDA PWM-control project — appliance modification, not an open hob design
+
+Project: https://hackaday.io/project/203350-diy-pwm-controlled-ikea-tillreda-induction-cooktop
+
+The author publishes a small interface PCB Gerber export, schematic/layout images and ATmega328PB firmware for adding external control to an existing 2 kW IKEA TILLREDA cooktop. The project explicitly notes that the Gerbers are a prototype export, not all layers/footprints are verified, and its own safety notes warn that the appliance's internal electronics are not isolated from mains. The method intercepts or emulates control communication and relies on the original appliance's power board and protection behaviour.
+
+The public project page reviewed here does not state a clear license for the uploaded files. Do not assume that availability for download permits reuse or redistribution.
+
+**Decision:** Not a PawPlate architecture to adopt: it modifies an existing appliance, does not provide a new dual-zone power-stage design, and does not establish a license for the files. It is useful only as a case study in the distinction between controlling an appliance through its intended interface and designing a new induction hob.
+
 ## Licensing implications for PawPlate
 
 The current PawPlate LICENSES.md correctly records that no project license has been selected. Keep that status until the project owner chooses explicit licenses and adds the corresponding license texts.
