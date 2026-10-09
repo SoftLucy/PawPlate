@@ -73,3 +73,37 @@ Use the Infineon 170 mm supplied coil as the first reference assembly to investi
 - ITG Induktion, [induction system assemblies](https://www.itg-induktion.de/en/induction-systems/assemblies-for-induction-systems): example of application-specific custom assemblies.
 
 This is a targeted web survey, not proof that these are all products available worldwide. Listings and spare-part availability can change; electrical specifications not present in the cited sources are explicitly left unknown rather than guessed.
+
+
+## Follow-up: matched-coil data from Infineon evaluation platforms (2026-10-09)
+
+A further review of official evaluation-board manuals found two more useful, **matched board + coil** data sets. They are more useful than a generic spare-part listing for understanding electrical behaviour, but neither is automatically a PawPlate-compatible assembly.
+
+### Infineon EVAL_2KW_SiC_IH supplied coil
+
+The 2025 application note states that the kit includes its resonant coil and that test results used that coil with induction-compatible cookware. Figure 9 plots equivalent series inductance and resistance from roughly 90 to 150 kHz:
+
+- No pan: inductance about 49 uH; equivalent series resistance about 0.2 to 0.35 ohm.
+- Pan present: inductance about 18 to 20 uH; equivalent series resistance about 3.6 to 4.9 ohm.
+- The values are estimates read from published graphs, not guaranteed limits or a supplier datasheet.
+
+The associated board is a 2 kW half-bridge SiC evaluation platform intended to operate with an external high-voltage DC supply (0 to 340 VDC) and 18 V auxiliary supply. Its documented switching range is 100 to 140 kHz (up to 150 kHz in the product summary). It has no MCU on the power board; Infineon documents optional XMC1300 control firmware. The application note says coil design is out of scope and emphasizes that coil, cookware and spacing change system behaviour.
+
+Sources:
+- https://www.infineon.com/assets/row/public/documents/24/42/infineon-eval-2kw-sic-ih-applicationnotes-en.pdf
+- https://www.infineon.com/evaluation-board/EVAL-2KW-SIC-IH
+
+This provides a strong measured coil/load reference, but its high-frequency range and external DC supply make it a less direct starting point for a 230 V AC domestic hob.
+
+### Infineon EVAL-IHW25N140R5L supplied coil
+
+The official 2023 manual says the kit contains a replaceable 170 mm coil with a temperature sensor in the coil assembly, an interface board and a quasi-resonant inverter rated for up to 2 kW output at 220 VAC. The coil was sized for the supplied resonant tank. Figure 16 publishes load curves across 0 to 50 kHz; approximate graph readings are around 90 uH unloaded and a strongly frequency-dependent loaded inductance, with equivalent resistance changing from a fraction of an ohm unloaded to multiple ohms with a pan. The manual explicitly says to measure the individual properties when using a different coil or cookware.
+
+Source:
+- https://www.infineon.com/dgdl/Infineon-EVAL-IHW25N140R5L-UserManual-v01_00-EN.pdf?fileId=8ac78c8c8afe5bd0018b18c78e023a8d
+
+This is the most practical low-cost, 20-50 kHz *coil characterization reference kit* found. It is still a single-zone quasi-resonant evaluation board, not the proposed final two-zone half-bridge system.
+
+### Interpretation
+
+The EVAL_2KW_SiC_IH curves are the clearest publicly published modern matched-coil numbers found in this search. The EVAL-IHW25N140R5L kit is more aligned with typical domestic hob frequencies and is documented as a complete 220 VAC single-zone evaluation setup. Neither source makes its coil a universal spare or establishes compatibility with a different inverter.

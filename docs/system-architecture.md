@@ -50,3 +50,8 @@ The ESP32 must not be the only means of turning off a dangerous power stage. Def
 - Applicable standards and verification plan
 
 No topology has been selected and no design is ready for mains connection. Evaluate candidates using published references, simulation, cost estimates, and qualified engineering review before physical implementation.
+
+
+## Research update (2026-10-09)
+
+Half-bridge series-resonant is currently the leading topology candidate, based on the dual-zone references compared in `docs/research/coil-inverter-pairing-study.md`. It is not yet a fixed decision. Keep the coil and inverter as a paired design choice: the Infineon 170 mm coil kit is a useful 20-50 kHz matched-load reference, while Midea 17466000000118 is a low-cost 180 mm spare candidate with missing electrical data. Neither is approved for PawPlate. The next gate is to obtain or measure electrical data for an exact coil before setting resonant-network and operating limits.

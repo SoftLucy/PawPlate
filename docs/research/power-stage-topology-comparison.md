@@ -60,3 +60,8 @@ The controller should request power in watts or a documented normalized power co
 ## Next research task
 
 Before selecting part numbers, investigate whether there are open schematics/BOMs or serviceable commercial subassemblies for a two-zone half-bridge hob, and obtain electrical data for at least one real coil assembly. Keep this phase non-destructive and research-first; do not disassemble the user's existing hob.
+
+
+## Follow-up research (2026-10-09)
+
+The next task proposed above has now been investigated in `docs/research/coil-inverter-pairing-study.md`. Current research supports keeping half-bridge series-resonant as the leading *candidate* because there are documented dual-zone precedents, notably Infineon's 3.3 kW dual-hob reference and TI's two-half-bridge architecture. The decision is still open: the exact coil, power-stage input/output budget, sourcing, editable design material, and validation plan must be resolved before selection.

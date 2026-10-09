@@ -58,3 +58,4 @@ Licensing has not yet been selected. Hardware and software may use separate lice
 
 - `docs/research/coil-assembly-comparison.md` - sourced comparison of commercially listed replacement coils, documented evaluation-board coil assemblies, service-manual examples, and published numerical coil characteristics. Missing specifications are marked unknown; no coil is approved for use.
 - `docs/design/coil-interface-proposal.md` - proposed coil cassette interface, mandatory compatibility gates, characterization requirements and approval levels.
+- `docs/research/coil-inverter-pairing-study.md` - in-depth comparison of purchasable matched coil/inverter kits and dual-zone reference architectures, including sourcing, limitations and recommended next steps.
