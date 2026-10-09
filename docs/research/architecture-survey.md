@@ -6,7 +6,7 @@ Date: 2026-10-09
 
 This is a first-pass survey for PawPlate, a proposed low-cost, two-zone built-in induction hob. The project has chosen the ESP32 family as its main microcontroller and wants modular, standardized parts. No hardware was opened or modified for this research.
 
-The literature supports separating the appliance into mains/DC-link, resonant power conversion, coil/resonant network, sensing/protection, controller, UI, auxiliary supply and thermal/mechanical subsystems. A sensible initial logical model is two zone power channels under one supervisory controller and shared power budget. This does **not** yet determine whether both zones share a DC link, whether each has its own inverter PCB, or which resonant topology is best.
+The literature supports separating the appliance into mains/DC-link, resonant power conversion, coil/resonant network, sensing/protection, controller, UI, auxiliary supply and thermal/mechanical subsystems. A sensible initial logical model is two zone power channels under an ESP32-family controller and a shared power budget, with the supervisory/fast-control split still open. This does **not** yet determine whether both zones share a DC link, whether each has its own inverter PCB, which resonant topology is best, or which ESP32 variant is appropriate.
 
 ## Sources and what they contribute
 
@@ -42,7 +42,7 @@ The literature supports separating the appliance into mains/DC-link, resonant po
 
 ## Initial architectural implications
 
-- **ESP32 is the supervisory controller.** Use it for UI, operating state, power scheduling, diagnostics and control algorithms once timing and protection partitioning have been validated.
+- **ESP32 family chosen; role and exact variant undecided.** A supervisory role for UI, operating state, power scheduling and diagnostics is one candidate partition. Whether an ESP32 variant can also perform the fast resonant-control loop must be evaluated against its exact PWM/ADC/ETM resources, timing, errata and fault behaviour. Do not assume ESP32-S3 or any other specific variant is selected.
 - **Fast protection is a separate path.** Overcurrent and other critical faults should be able to inhibit switching in hardware without waiting for an application task, network stack or display code. Firmware should record the fault and manage recovery only after the hardware has reached a safe state.
 - **Each zone is a replaceable functional channel.** Each needs a coil and resonant network, switching devices and driver, feedback sensing, temperature monitoring and a defined interface to the shared controller/power budget.
 - **The mains/DC-link subsystem is shared infrastructure.** Input protection, EMI filtering, rectification, energy storage and auxiliary supplies need explicit boundaries and safety review. Shared infrastructure does not mean these circuits are low-risk or plug-and-play.
