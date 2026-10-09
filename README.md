@@ -52,3 +52,8 @@ This repository is not a construction guide for a working mains-powered applianc
 ## License
 
 Licensing has not yet been selected. Hardware and software may use separate licenses; see `LICENSES.md` for the planned decision. Until a license is chosen and added, do not assume the repository grants permission to reuse or redistribute all of its contents; GitHub's [licensing guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) explains why a license matters.
+
+
+## Coil assembly research
+
+- `docs/research/coil-assembly-comparison.md` - sourced comparison of commercially listed replacement coils, documented evaluation-board coil assemblies, service-manual examples, and published numerical coil characteristics. Missing specifications are marked unknown; no coil is approved for use.
