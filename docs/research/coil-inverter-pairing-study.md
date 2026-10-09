@@ -38,7 +38,7 @@ Product-page details found:
 - Published frequency range: 30-50 kHz.
 - Product page lists 3.3 kW Pout, 220 V and 15 A, and separately advertises support for 3.5 kW. The user guide's own technical table states maximum 3,600 W **system input** at 220 V AC; it lists the bigger coil at 2,200 W (3,000 W boost), the smaller coil at 1,400 W (2,000 W boost), and coil inductances of 51 µH and 71 µH. These labels and conditions are not interchangeable; use the manual's explicit input-power statement when comparing against PawPlate's input target.
 - Product family includes PSoC 6; the user guide is public.
-- Inverter schematic and PCB layout PDFs exist. Infineon staff stated in the community that the public board files were PDF files only, not editable CAD/Gerber. Some files and BOMs are behind account/login gating.
+- Inverter schematic and PCB layout PDFs exist. Infineon staff stated in the community that publicly downloadable board files were PDF-only, not editable CAD/Gerber. However, Infineon's [ModusToolbox Smart Induction Cooktop Pack](https://softwaretools.infineon.com/tools/com.ifx.tb.tool.modustoolboxpacksmartinductioncooktop) advertises hardware Gerber files, firmware and board support packages behind login/request gating. Editable files may therefore be obtainable through an access request, but access and reuse rights are not confirmed. Some BOM/design files are also gated.
 - A Mouser listing was indexed at EUR 804.96, with no stock and units on order / long lead time at the time of the result. Verify live availability and the precise kit contents before relying on these figures.
 
 Why it matters:

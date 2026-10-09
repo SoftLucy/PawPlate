@@ -57,11 +57,10 @@ The controller should request power in watts or a documented normalized power co
 5. Exact ESP32 variant and hardware PWM/fault architecture.
 6. Enclosure, cooling, EMI and appliance safety validation.
 
-## Next research task
+## Next research gates
 
-Before selecting part numbers, investigate whether there are open schematics/BOMs or serviceable commercial subassemblies for a two-zone half-bridge hob, and obtain electrical data for at least one real coil assembly. Keep this phase non-destructive and research-first; do not disassemble the user's existing hob.
-
+The initial open-reference survey is complete enough to set priorities, though it is not exhaustive. The next gates are to request access to Infineon's gated Smart Induction Cooktop Pack if editable Gerber/BSP files would materially help; obtain missing electrical data for a real coil; compare exact ESP32 variants against deterministic PWM/ADC/fault requirements; and translate the preliminary EU compliance screening into a controlled requirements-to-evidence plan. Keep this phase non-destructive and research-first; do not disassemble the user's existing hob.
 
 ## Follow-up research (2026-10-09)
 
-The next task proposed above has now been investigated in `docs/research/coil-inverter-pairing-study.md`. Current research supports keeping half-bridge series-resonant as the leading *candidate* because there are documented dual-zone precedents, notably Infineon's 3.3 kW dual-hob reference and TI's two-half-bridge architecture. The decision is still open: the exact coil, power-stage input/output budget, sourcing, editable design material, and validation plan must be resolved before selection.
+Research supports keeping half-bridge series-resonant as the leading *candidate*, based on the dual-zone Infineon reference and TI's two-half-bridge architecture. Exact IHW40N65R6 IGBTs, 2ED21824S06J drivers and an A120 TLI4971 sensor variant are currently listed by Infineon, but this does not create a validated PawPlate BOM. The Infineon manual explicitly states 3,600 W maximum system input at 220 V AC; product-page 3.3 kW Pout / 3.5 kW support figures have different labels/conditions. ESP32-S3 lacks MCPWM ETM event support, making deterministic switching-synchronous ADC sampling a significant open issue. The project now has an initial EU/Germany compliance applicability screening and traceable safety-requirement IDs. Topology, exact coil/tank, controller partition, input-power policy and validation plan remain open.
