@@ -36,7 +36,7 @@ https://www.infineon.com/evaluation-board/REF-SHA3K3IHWR5SYS
 Product-page details found:
 - Described as a dual-hob half-bridge Smart Induction Cooktop reference design.
 - Published frequency range: 30-50 kHz.
-- Product page lists 3.3 kW, 220 V and 15 A.
+- Product page lists 3.3 kW Pout, 220 V and 15 A, and separately advertises support for 3.5 kW. The user guide's own technical table states maximum 3,600 W **system input** at 220 V AC; it lists the bigger coil at 2,200 W (3,000 W boost), the smaller coil at 1,400 W (2,000 W boost), and coil inductances of 51 µH and 71 µH. These labels and conditions are not interchangeable; use the manual's explicit input-power statement when comparing against PawPlate's input target.
 - Product family includes PSoC 6; the user guide is public.
 - Inverter schematic and PCB layout PDFs exist. Infineon staff stated in the community that the public board files were PDF files only, not editable CAD/Gerber. Some files and BOMs are behind account/login gating.
 - A Mouser listing was indexed at EUR 804.96, with no stock and units on order / long lead time at the time of the result. Verify live availability and the precise kit contents before relying on these figures.
@@ -50,7 +50,7 @@ Limitations:
 - No complete numeric coil impedance dataset or independently reorderable coil part number was established from the public material reviewed.
 - Its controller is PSoC 6, not ESP32.
 - Publicly available PDFs are useful for learning but less useful for direct repairable/open-source development than native editable sources and a clear reuse license.
-- The 3.3 kW / 220 V / 15 A values are catalog fields, not sufficient by themselves to prove compliance with PawPlate's 3.0 kW continuous **input** target and 3.68 kW provisional input ceiling. Confirm how the design defines mains input power, zone output power, current and power sharing in the manual before comparing ratings directly.
+- The manual's 3,600 W maximum system-input rating at 220 V AC is the most directly comparable published figure, but it is above PawPlate's 3.0 kW continuous input target and must not be assumed compatible with a 230 V / 16 A installation. Product-page 3.3 kW Pout and 3.5 kW support figures have different labels/conditions. PawPlate needs its own measured/verified input budget and zone-sharing limits.
 
 Primary sources:
 - https://www.infineon.com/evaluation-board/REF-SHA3K3IHWR5SYS
